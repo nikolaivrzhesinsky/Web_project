@@ -15,7 +15,7 @@ import java.util.List;
 public class CategoryModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
     private String name;
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<BookModel> books = new ArrayList<>();
@@ -29,7 +29,7 @@ public class CategoryModel {
         books.add(book);
     }
 
-    public void removeBook(Book book) {
+    public void removeBook(BookModel book) {
         books.remove(book);
     }
 }
