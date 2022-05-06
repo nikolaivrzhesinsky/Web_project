@@ -19,6 +19,7 @@ public class CityServiceImpl implements CityService{
         this.cityRepository = cityRepository;
     }
 
+    @Transactional
     @Override
     public CityModel addCity(CityRequestDto cityRequestDto) {
         CityModel cityModel= new CityModel();
