@@ -6,6 +6,7 @@ import com.example.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
 public class CityServiceImpl implements CityService{
 
     private final CityRepository cityRepository;
-
+    @Autowired
     public CityServiceImpl(CityRepository cityRepository) {
         this.cityRepository = cityRepository;
     }
@@ -37,16 +38,23 @@ public class CityServiceImpl implements CityService{
 
     @Override
     public CityModel getCity(int cityId) {
-        return null;
+
+        return cityRepository.findById(cityId).orElseThrow(() ->
+                new IllegalArgumentException("city with cityId: " + cityId + " could not be found"));
     }
 
     @Override
     public CityModel deleteCity(int cityId) {
+        CityModel cityModel= new CityModel();
+        cityRepository.deleteById(cityId);
         return null;
     }
 
+    @Transactional
     @Override
     public CityModel editCity(int cityId, CityRequestDto cityRequestDto) {
-        return null;
+        CityModel cityEdit=getCity(cityId);
+        cityEdit.setName(cityRequestDto.getName());
+        return cityEdit;
     }
 }
