@@ -4,15 +4,15 @@ import com.example.Models.ZipcodeModel;
 import com.example.dto.requestDto.ZipcodeRequestDto;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface ZipcodeService {
     public ZipcodeModel addZipcode(ZipcodeRequestDto zipcodeRequestDto);
-    public List<ZipcodeModel> getZipcodes();
-    public ZipcodeModel getZipcode(Long zipcodeId);
-    public ZipcodeModel deleteZipcode(Long zipcodeId);
-    public ZipcodeModel editZipcode(Long zipcodeId, ZipcodeRequestDto zipcodeRequestDto);
+    public Iterable<ZipcodeModel> getZipcodes();
+    public ZipcodeModel getZipcode(int zipcodeId);
+    public void deleteZipcode(int zipcodeId);
+    public ZipcodeModel editZipcode(int zipcodeId, ZipcodeRequestDto zipcodeRequestDto);
     public ZipcodeModel addCityToZipcode(Long zipcodeId, Long cityId);
     public ZipcodeModel removeCityFromZipcode(Long zipcodeId);
 }

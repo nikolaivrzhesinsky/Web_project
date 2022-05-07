@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ZipcodeServiceImpl implements ZipcodeService {
@@ -35,27 +35,38 @@ public class ZipcodeServiceImpl implements ZipcodeService {
     }
 
     @Override
-    public List<ZipcodeModel> getZipcodes() {
-        return null;
+    public Iterable<ZipcodeModel> getZipcodes() {
+        return zipcodeRepository.findAll();
     }
 
     @Override
-    public ZipcodeModel getZipcode(Long zipcodeId) {
-        return null;
+    public ZipcodeModel getZipcode(int zipcodeId) {
+        return zipcodeRepository.findById(zipcodeId).orElseThrow(() ->
+                new IllegalArgumentException(
+                        "zipcode with id: " + zipcodeId + " could not be found"));
     }
 
     @Override
-    public ZipcodeModel deleteZipcode(Long zipcodeId) {
-        return null;
+    public void deleteZipcode(int zipcodeId) {
+        zipcodeRepository.deleteById(zipcodeId);
     }
 
     @Override
-    public ZipcodeModel editZipcode(Long zipcodeId, ZipcodeRequestDto zipcodeRequestDto) {
-        return null;
+    public ZipcodeModel editZipcode(int zipcodeId, ZipcodeRequestDto zipcodeRequestDto) {
+
+        ZipcodeModel zipcodeToEdit = getZipcode(zipcodeId);
+        zipcodeToEdit.setName(zipcodeRequestDto.getName());
+        if (zipcodeRequestDto.getCityId() != null) {
+            return zipcodeToEdit;
+        }
+        CityModel city = cityService.getCity(zipcodeRequestDto.getCityId());
+        zipcodeToEdit.setCityModel(city);
+        return zipcodeToEdit;
     }
 
     @Override
     public ZipcodeModel addCityToZipcode(Long zipcodeId, Long cityId) {
+
         return null;
     }
 
