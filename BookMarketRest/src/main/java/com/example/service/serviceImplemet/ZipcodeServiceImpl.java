@@ -1,14 +1,15 @@
-package com.example.service;
+package com.example.service.serviceImplemet;
 
 import com.example.Models.CityModel;
 import com.example.Models.ZipcodeModel;
 import com.example.dto.requestDto.ZipcodeRequestDto;
 import com.example.repository.ZipcodeRepository;
+import com.example.service.serviceInerface.CityService;
+import com.example.service.serviceInerface.ZipcodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
-import java.util.Optional;
+import java.util.Objects;
 
 @Service
 public class ZipcodeServiceImpl implements ZipcodeService {
@@ -51,6 +52,7 @@ public class ZipcodeServiceImpl implements ZipcodeService {
         zipcodeRepository.deleteById(zipcodeId);
     }
 
+    @Transactional
     @Override
     public ZipcodeModel editZipcode(int zipcodeId, ZipcodeRequestDto zipcodeRequestDto) {
 
@@ -64,14 +66,25 @@ public class ZipcodeServiceImpl implements ZipcodeService {
         return zipcodeToEdit;
     }
 
+    @Transactional
     @Override
-    public ZipcodeModel addCityToZipcode(Long zipcodeId, Long cityId) {
-
-        return null;
+    public ZipcodeModel addCityToZipcode(int zipcodeId, int cityId) {
+        ZipcodeModel zipcodeModel=getZipcode(zipcodeId);
+        CityModel cityModel=cityService.getCity(cityId);
+        if (Objects.nonNull(zipcodeModel.getCityModel())) {
+            throw new IllegalArgumentException("zipcode already has a city");
+        }
+        zipcodeModel.setCityModel(cityModel);
+        return zipcodeModel;
     }
 
     @Override
-    public ZipcodeModel removeCityFromZipcode(Long zipcodeId) {
+    public ZipcodeModel removeCityFromZipcode(int zipcodeId) {
+        ZipcodeModel zipcode = getZipcode(zipcodeId);
+        if (!Objects.nonNull(zipcode.getCityModel())) {
+            throw new IllegalArgumentException("zipcode does not have a city");
+        }
+        zipcode.setCityModel(null);
         return null;
     }
 }

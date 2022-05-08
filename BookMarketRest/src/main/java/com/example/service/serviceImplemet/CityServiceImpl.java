@@ -1,8 +1,9 @@
-package com.example.service;
+package com.example.service.serviceImplemet;
 
 import com.example.Models.CityModel;
 import com.example.dto.requestDto.CityRequestDto;
 import com.example.repository.CityRepository;
+import com.example.service.serviceInerface.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CityServiceImpl implements CityService{
+public class CityServiceImpl implements CityService {
 
     private final CityRepository cityRepository;
     @Autowired

@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.service.serviceInerface;
 
 import com.example.Models.ZipcodeModel;
 import com.example.dto.requestDto.ZipcodeRequestDto;
@@ -13,6 +13,6 @@ public interface ZipcodeService {
     public ZipcodeModel getZipcode(int zipcodeId);
     public void deleteZipcode(int zipcodeId);
     public ZipcodeModel editZipcode(int zipcodeId, ZipcodeRequestDto zipcodeRequestDto);
-    public ZipcodeModel addCityToZipcode(Long zipcodeId, Long cityId);
-    public ZipcodeModel removeCityFromZipcode(Long zipcodeId);
+    public ZipcodeModel addCityToZipcode(int zipcodeId, int cityId);
+    public ZipcodeModel removeCityFromZipcode(int zipcodeId);
 }

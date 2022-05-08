@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.service.serviceInerface;
 
 import com.example.Models.CityModel;
 import com.example.dto.requestDto.CityRequestDto;
