@@ -53,7 +53,7 @@ public class mapperUtil {
         return authorResponseDto;
     }
 
-    public static List<AuthorResponseDto> authorResponseDtoList(List<AuthorModel> authors){
+    public static List<AuthorResponseDto> authorResponseDtoList(Iterable<AuthorModel> authors){
         List<AuthorResponseDto> authorResponseDtoArrayList = new ArrayList<>();
         for (AuthorModel author: authors) {
             authorResponseDtoArrayList.add(authorToAuthorResponseDto(author));

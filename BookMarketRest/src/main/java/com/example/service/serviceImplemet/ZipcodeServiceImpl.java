@@ -85,6 +85,6 @@ public class ZipcodeServiceImpl implements ZipcodeService {
             throw new IllegalArgumentException("zipcode does not have a city");
         }
         zipcode.setCityModel(null);
-        return null;
+        return zipcode;
     }
 }
