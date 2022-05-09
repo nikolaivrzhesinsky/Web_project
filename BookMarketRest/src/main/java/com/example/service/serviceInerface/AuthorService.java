@@ -7,12 +7,13 @@ import com.example.dto.responseDto.AuthorResponseDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface AuthorService {
     public AuthorResponseDto addAuthor(AuthorRequestDto authorRequestDto);
     public List<AuthorResponseDto> getAuthors();
-    public AuthorResponseDto getAuthorById(int authorId);
+    public AuthorResponseDto getAuthorByIdResp(int authorId);
     public AuthorModel getAuthor(int authorId);
     public AuthorResponseDto deleteAuthor(int authorId);
     public AuthorResponseDto editAuthor(int authorId, AuthorRequestDto authorRequestDto);
