@@ -30,12 +30,11 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public List<CityModel> getCities() {
-        List<CityModel>cityModelList= new ArrayList<>();
-        cityRepository.findAll().forEach(cityModelList::add);
-        return cityModelList;
-//        Iterable<CityModel> cityModelList= new ArrayList<>();
-//        cityModelList=cityRepository.findAll();
-//        return (List<CityModel>) cityModelList;
+//        List<CityModel>cityModelList= new ArrayList<>();
+//        cityRepository.findAll().forEach(cityModelList::add);
+//        return cityModelList;
+
+        return (List<CityModel>) cityRepository.findAll();
     }
 
     @Override
