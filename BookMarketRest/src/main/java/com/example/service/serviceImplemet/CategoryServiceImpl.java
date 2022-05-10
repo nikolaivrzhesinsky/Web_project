@@ -8,6 +8,7 @@ import com.example.repository.CategoryRepository;
 import com.example.service.serviceInerface.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +29,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryResponseDto addCategory(CategoryRequestDto categoryRequestDto) {
+
         CategoryModel categoryModel=new CategoryModel();
         categoryModel.setName(categoryRequestDto.getName());
         categoryRepository.save(categoryModel);
@@ -35,22 +37,31 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryResponseDto getCategoryById(Long categoryId) {
-        return null;
+    public CategoryResponseDto getCategoryById(int categoryId) {
+
+        CategoryModel categoryModel=getCategory(categoryId);
+        return mapperUtil.categoryToCategoryResponseDto(categoryModel);
     }
 
     @Override
     public List<CategoryResponseDto> getCategories() {
-        return null;
+
+        List<CategoryModel> categoryModels=(List<CategoryModel>) categoryRepository.findAll();
+        return mapperUtil.categoriesToCategoryResponseDtoList(categoryModels);
     }
 
     @Override
-    public CategoryResponseDto deleteCategory(Long categoryId) {
-        return null;
+    public void deleteCategory(int categoryId) {
+
+        categoryRepository.delete(getCategory(categoryId));
     }
 
+    @Transactional
     @Override
-    public CategoryResponseDto editCategory(Long categoryId, CategoryRequestDto categoryRequestDto) {
-        return null;
+    public CategoryResponseDto editCategory(int categoryId, CategoryRequestDto categoryRequestDto) {
+
+        CategoryModel categoryModel=getCategory(categoryId);
+        categoryModel.setName(categoryRequestDto.getName());
+        return mapperUtil.categoryToCategoryResponseDto(categoryModel);
     }
 }

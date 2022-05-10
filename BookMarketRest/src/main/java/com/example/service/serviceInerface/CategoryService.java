@@ -11,8 +11,8 @@ import java.util.List;
 public interface CategoryService {
     public CategoryModel getCategory(int categoryId);
     public CategoryResponseDto addCategory(CategoryRequestDto categoryRequestDto);
-    public CategoryResponseDto getCategoryById(Long categoryId);
+    public CategoryResponseDto getCategoryById(int categoryId);
     public List<CategoryResponseDto> getCategories();
-    public CategoryResponseDto deleteCategory(Long categoryId);
-    public CategoryResponseDto editCategory(Long categoryId, CategoryRequestDto categoryRequestDto);
+    public void deleteCategory(int categoryId);
+    public CategoryResponseDto editCategory(int categoryId, CategoryRequestDto categoryRequestDto);
 }
