@@ -30,7 +30,7 @@ public class mapperUtil {
         return bookResponseDto;
     }
 
-    public static List<BookResponseDto> bookResponseDtoList(List<BookModel> bookModelList){
+    public static List<BookResponseDto> bookResponseDtoList(Iterable<BookModel> bookModelList){
         List<BookResponseDto> bookResponseDtoArrayList= new ArrayList<>();
         for (BookModel book : bookModelList) {
             bookResponseDtoArrayList.add(bookToBookResponseDto(book));
