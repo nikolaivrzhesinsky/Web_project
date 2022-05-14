@@ -3,6 +3,7 @@ package com.example.bookmarketrest.controllers;
 import com.example.bookmarketrest.Models.ZipcodeModel;
 import com.example.bookmarketrest.dto.requestDto.ZipcodeRequestDto;
 import com.example.bookmarketrest.service.serviceInerface.ZipcodeService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/zipcode")
+@Api("Controller for zipcode ")
 public class ZipcodeController {
     private final ZipcodeService zipcodeService;
 

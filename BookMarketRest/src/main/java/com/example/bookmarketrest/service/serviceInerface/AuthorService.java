@@ -12,7 +12,7 @@ import java.util.List;
 public interface AuthorService {
     public AuthorResponseDto addAuthor(AuthorRequestDto authorRequestDto);
     public List<AuthorResponseDto> getAuthors();
-    public AuthorResponseDto getAuthorByIdResp(int authorId);
+    public AuthorResponseDto getAuthorById(int authorId);
     public AuthorModel getAuthor(int authorId);
     public AuthorResponseDto deleteAuthor(int authorId);
     public AuthorResponseDto editAuthor(int authorId, AuthorRequestDto authorRequestDto);

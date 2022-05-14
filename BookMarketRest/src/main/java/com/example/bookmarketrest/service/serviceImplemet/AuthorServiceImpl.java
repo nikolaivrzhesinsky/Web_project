@@ -49,7 +49,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Transactional
     @Override
-    public AuthorResponseDto getAuthorByIdResp(int authorId) {
+    public AuthorResponseDto getAuthorById(int authorId) {
         return mapperUtil.authorToAuthorResponseDto(getAuthor(authorId));
     }
 

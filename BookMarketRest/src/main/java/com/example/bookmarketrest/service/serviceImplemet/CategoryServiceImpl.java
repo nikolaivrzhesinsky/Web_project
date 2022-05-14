@@ -54,9 +54,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void deleteCategory(int categoryId) {
+    public CategoryResponseDto deleteCategory(int categoryId) {
 
-        categoryRepository.delete(getCategory(categoryId));
+        CategoryModel categoryModel=getCategory(categoryId);
+        categoryRepository.delete(categoryModel);
+        return mapperUtil.categoryToCategoryResponseDto(categoryModel);
     }
 
     @Transactional

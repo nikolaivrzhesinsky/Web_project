@@ -13,6 +13,6 @@ public interface CategoryService {
     public CategoryResponseDto addCategory(CategoryRequestDto categoryRequestDto);
     public CategoryResponseDto getCategoryById(int categoryId);
     public List<CategoryResponseDto> getCategories();
-    public void deleteCategory(int categoryId);
+    public CategoryResponseDto deleteCategory(int categoryId);
     public CategoryResponseDto editCategory(int categoryId, CategoryRequestDto categoryRequestDto);
 }
