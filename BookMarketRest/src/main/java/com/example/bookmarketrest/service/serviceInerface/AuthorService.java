@@ -14,7 +14,7 @@ public interface AuthorService {
     public AuthorResponseDto addAuthor(AuthorRequestDto authorRequestDto);
     public List<AuthorResponseDto> getAuthors();
     public AuthorResponseDto getAuthorById(int authorId);
-    public Optional<AuthorModel> getAuthorByName(String name);
+    public AuthorResponseDto getAuthorByName(String name);
     public AuthorModel getAuthor(int authorId);
     public AuthorResponseDto deleteAuthor(int authorId);
     public AuthorResponseDto editAuthor(int authorId, AuthorRequestDto authorRequestDto);

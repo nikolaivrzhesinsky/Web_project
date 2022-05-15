@@ -24,6 +24,10 @@ public class ZipcodeModel implements Serializable {
     @JoinColumn(name = "city_id")
     private CityModel cityModel;
 
+    public ZipcodeModel(String name){
+        this.name= name;
+    }
+
     public ZipcodeModel(String name, CityModel cityModel) {
         this.name = name;
         this.cityModel = cityModel;

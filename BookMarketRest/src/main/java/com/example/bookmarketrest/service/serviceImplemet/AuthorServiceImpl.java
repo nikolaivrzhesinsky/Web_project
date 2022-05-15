@@ -56,10 +56,12 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Transactional
     @Override
-    public  Optional<AuthorModel> getAuthorByName(String name){
+    public  AuthorResponseDto getAuthorByName(String name){
 
-        Optional<AuthorModel> authorModel=authorRepository.findByName(name);
-        return authorModel;
+        AuthorModel authorModel = authorRepository.findByName(name).orElseThrow(() ->
+                new IllegalArgumentException(
+                        "author with id: " + name + " could not be found"));
+        return mapperUtil.authorToAuthorResponseDto(authorModel);
     }
 
     @Override

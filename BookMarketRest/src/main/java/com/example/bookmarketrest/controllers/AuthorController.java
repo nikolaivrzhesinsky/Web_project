@@ -40,8 +40,8 @@ public class AuthorController {
     }
 
     @GetMapping("/getName/{name}")
-    public ResponseEntity<Optional<AuthorModel>> getAuthorByName(@PathVariable final  String name){
-        Optional<AuthorModel> authorModel=authorService.getAuthorByName(name);
+    public ResponseEntity<AuthorResponseDto> getAuthorByName(@PathVariable final  String name){
+        AuthorResponseDto authorModel=authorService.getAuthorByName(name);
         return new ResponseEntity<>(authorModel,HttpStatus.OK);
     }
 
