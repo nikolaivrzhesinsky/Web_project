@@ -49,6 +49,7 @@ public class mapperUtil {
             names.add(book.getName());
         }
         authorResponseDto.setBookNames(names);
+        authorResponseDto.setZipcodeName(author.getZipcodeModel().getName());
 
         return authorResponseDto;
     }

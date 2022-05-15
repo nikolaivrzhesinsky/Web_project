@@ -1,8 +1,10 @@
 package com.example.bookmarketrest.controllers;
 
 
+import com.example.bookmarketrest.Models.AuthorModel;
 import com.example.bookmarketrest.dto.requestDto.AuthorRequestDto;
 import com.example.bookmarketrest.dto.responseDto.AuthorResponseDto;
+import com.example.bookmarketrest.repository.AuthorRepository;
 import com.example.bookmarketrest.service.serviceInerface.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,15 +12,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/author")
 public class AuthorController {
     private final AuthorService authorService;
+    private final AuthorRepository authorRepository;
 
     @Autowired
-    public AuthorController(AuthorService authorService) {
+    public AuthorController(AuthorService authorService, AuthorRepository authorRepository) {
         this.authorService = authorService;
+        this.authorRepository= authorRepository;
     }
 
     @PostMapping("/addAuthor")
@@ -32,6 +37,12 @@ public class AuthorController {
     public ResponseEntity<AuthorResponseDto> getAuthor(@PathVariable final int id) {
         AuthorResponseDto authorResponseDto = authorService.getAuthorById(id);
         return new ResponseEntity<>(authorResponseDto, HttpStatus.OK);
+    }
+
+    @GetMapping("/getName/{name}")
+    public ResponseEntity<Optional<AuthorModel>> getAuthorByName(@PathVariable final  String name){
+        Optional<AuthorModel> authorModel=authorService.getAuthorByName(name);
+        return new ResponseEntity<>(authorModel,HttpStatus.OK);
     }
 
     @GetMapping("/getAll")

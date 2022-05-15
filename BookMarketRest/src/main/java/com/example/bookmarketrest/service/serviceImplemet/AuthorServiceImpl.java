@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
@@ -51,6 +52,14 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public AuthorResponseDto getAuthorById(int authorId) {
         return mapperUtil.authorToAuthorResponseDto(getAuthor(authorId));
+    }
+
+    @Transactional
+    @Override
+    public  Optional<AuthorModel> getAuthorByName(String name){
+
+        Optional<AuthorModel> authorModel=authorRepository.findByName(name);
+        return authorModel;
     }
 
     @Override

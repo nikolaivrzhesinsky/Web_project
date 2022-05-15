@@ -1,9 +1,13 @@
 package com.example.bookmarketrest.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,11 +15,12 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Table(name="author")
-public class AuthorModel {
+public class AuthorModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @NonNull
     private String name;
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)

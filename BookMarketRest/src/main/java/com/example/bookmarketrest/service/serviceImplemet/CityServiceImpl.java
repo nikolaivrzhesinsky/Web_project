@@ -44,6 +44,14 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    public CityModel getCityByName(String name) {
+
+        CityModel cityModel= cityRepository.findCityModelByName(name);
+        return cityModel;
+    }
+
+
+    @Override
     public CityModel deleteCity(int cityId) {
         CityModel cityModel= new CityModel();
         cityRepository.deleteById(cityId);
