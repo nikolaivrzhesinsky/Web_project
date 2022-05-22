@@ -12,7 +12,7 @@
               integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
               crossorigin="anonymous">
 
-        <title>BUYSELL</title>
+        <title>Pharmacy_web</title>
     </head>
     <body>
     <nav class="navbar navbar-dark bg-dark">
