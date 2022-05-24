@@ -12,13 +12,17 @@
               integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
               crossorigin="anonymous">
 
-        <title>BUYSELL</title>
+        <title>Pharmacy Web</title>
     </head>
     <body>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a href="/">
-                <span class="navbar-brand mb-0 h1">BUYSELL</span>
+                <span class="navbar-brand mb-0 h1">Pharmacy Web</span>
+            </a>
+
+            <a href="/reviews">
+                <span class="navbar-brand mb-0 h1">reviews</span>
             </a>
             <#if user.email??>
                 <div class="dropdown text-end">
@@ -30,7 +34,7 @@
             <#else>
                 <button class="btn btn-light my-2 my-sm-0" type="button"
                         onclick="window.location.href = '/login'">
-                    Войти
+                    Log in
                 </button>
             </#if>
         </div>

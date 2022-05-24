@@ -20,7 +20,7 @@ import java.security.Principal;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("/")
+    @GetMapping("/reviews")
     public String products(@RequestParam(name = "searchWord", required = false) String title, Principal principal, Model model) {
         model.addAttribute("products", productService.listProducts(title));
         model.addAttribute("user", productService.getUserByPrincipal(principal));
