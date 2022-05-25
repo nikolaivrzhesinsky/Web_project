@@ -27,7 +27,9 @@ public class ProductService {
     }
 
     public void saveProduct(Principal principal, Product product, MultipartFile file1, MultipartFile file2, MultipartFile file3) throws IOException {
-        product.setUser(getUserByPrincipal(principal));
+        User user= getUserByPrincipal(principal);
+        product.setUser(user);
+        user.setBalance(user.getBalance()+300);
         Image image1;
         Image image2;
         Image image3;
@@ -46,6 +48,7 @@ public class ProductService {
         }
         log.info("Saving new Product. Title: {}; Author email: {}", product.getTitle(), product.getUser().getEmail());
         Product productFromDb = productRepository.save(product);
+
         productFromDb.setPreviewImageId(productFromDb.getImages().get(0).getId());
         productRepository.save(product);
     }

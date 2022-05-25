@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
+//Сущность для отзывов
 @Entity
 @Table(name = "products")
 @Data
@@ -16,7 +16,7 @@ public class Product {
     private Long id;
     private String title;
     private String description;
-    private Integer price;
+    //private Integer price;
     private String city;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,
     mappedBy = "product")

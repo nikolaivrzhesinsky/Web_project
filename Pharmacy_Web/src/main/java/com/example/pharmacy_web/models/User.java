@@ -17,6 +17,7 @@ public class User implements UserDetails {
     private String email;
     private String phoneNumber;
     private String name;
+    private Integer balance;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn
@@ -157,5 +158,13 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return active;
+    }
+
+    public Integer getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Integer balance) {
+        this.balance = balance;
     }
 }

@@ -28,6 +28,7 @@ public class UserService {
         user.setActive(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.getRoles().add(Role.ROLE_USER);
+        user.setBalance(1000);
         log.info("Saving new User with email: {}", email);
         userRepository.save(user);
         return true;
