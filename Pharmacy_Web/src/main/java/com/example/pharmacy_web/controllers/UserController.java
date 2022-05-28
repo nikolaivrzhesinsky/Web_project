@@ -47,13 +47,20 @@ public class UserController {
         return "redirect:/login";
     }
 
-//    @GetMapping("/user/update/{user}")
-//    public  String updateUser(@PathVariable("user") User user, Model model, Principal principal){
-//
-//
-//
-//        return "redirect:/profile";
-//    }
+    @GetMapping("/activate/{code}")
+    public String activate(Model model, @PathVariable String code,Principal principal) {
+
+        model.addAttribute("user", userService.getUserByPrincipal(principal));
+        boolean isActivated = userService.activateUser(code);
+
+        if (isActivated) {
+            model.addAttribute("message", "User successfully activated");
+        } else {
+            model.addAttribute("message", "Activation code is not found!");
+        }
+
+        return "login";
+    }
 
     @PostMapping("/user/update")
     public  String saveUpdate(Principal principal,@RequestParam(name = "name", required = false) String name,
