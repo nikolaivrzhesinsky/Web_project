@@ -69,11 +69,19 @@ public class UserController {
         return "redirect:/profile";
     }
 
-    @GetMapping("/user/{user}")
-    public String userInfo(@PathVariable("user") User user, Model model, Principal principal) {
-        model.addAttribute("user", user);
-        model.addAttribute("userByPrincipal", userService.getUserByPrincipal(principal));
-        model.addAttribute("products", user.getProducts());
-        return "user-info";
+    @GetMapping("/user/balance")
+    public String getBalance(Principal principal, Model model){
+
+        User user= userService.getUserByPrincipal(principal);
+        model.addAttribute("user",user);
+        return "balance";
     }
+
+//    @GetMapping("/user/{user}")
+//    public String userInfo(@PathVariable("user") User user, Model model, Principal principal) {
+//        model.addAttribute("user", user);
+//        model.addAttribute("userByPrincipal", userService.getUserByPrincipal(principal));
+//        model.addAttribute("products", user.getProducts());
+//        return "user-info";
+//    }
 }

@@ -43,10 +43,18 @@
                 <button type="submit" style="width: 100%" class="btn btn-dark">Изменить</button>
             </form>
         </div>
+
+        <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
+           href="/user/balance">
+            Balance
+        </a><br>
+
+        <#if user.isAdmin()>
         <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
            href="/my/products">
-            Мои товары
+             Товары
         </a>
+        </#if>
         <form action="/logout" method="post">
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
             <button type="submit" style="text-align: center; width: 100%" class="btn btn-danger mb-2">

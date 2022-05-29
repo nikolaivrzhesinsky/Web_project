@@ -102,4 +102,10 @@ public class UserService {
 
         userRepository.save(user);
     }
+
+//    public String checkBalance(Principal principal){
+//
+//        User user=getUserByPrincipal(principal);
+//        return user.getBalance().toString();
+//    }
 }

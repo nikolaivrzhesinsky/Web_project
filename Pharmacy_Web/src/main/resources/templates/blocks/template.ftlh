@@ -21,8 +21,8 @@
                 <span class="navbar-brand mb-0 h1">Pharmacy Web</span>
             </a>
 
-            <a href="/reviews">
-                <span class="navbar-brand mb-0 h1">reviews</span>
+            <a href="/products">
+                <span class="navbar-brand mb-0 h1">discount products</span>
             </a>
             <#if user.email??>
                 <div class="dropdown text-end">

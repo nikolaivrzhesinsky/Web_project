@@ -35,7 +35,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="description">Описание проблемы</label>
+                <label for="description">Описание продукта</label>
                 <textarea required class="form-control" id="description" name="description"></textarea>
             </div>
             <div class="form-group">
