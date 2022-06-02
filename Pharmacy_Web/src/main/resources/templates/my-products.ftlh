@@ -14,15 +14,15 @@
                 <input type="text" required class="form-control"
                        id="productName" name="title">
             </div>
-<#--            <div class="form-group">-->
-<#--                <label for="price">Цена товара</label>-->
-<#--                <div class="input-group mb-3">-->
-<#--                    <input type="number" required class="form-control" id="price" name="price">-->
-<#--                    <div class="input-group-append">-->
-<#--                        <span class="input-group-text">₽</span>-->
-<#--                    </div>-->
-<#--                </div>-->
-<#--            </div>-->
+            <div class="form-group">
+                <label for="price">Цена товара</label>
+                <div class="input-group mb-3">
+                    <input type="number" required class="form-control" id="price" name="price">
+                    <div class="input-group-append">
+                        <span class="input-group-text">₽</span>
+                    </div>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="searchCity">Город</label>
                 <select id="searchCity" required name="city" class="form-control">
@@ -77,7 +77,7 @@
                          class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">${product.title}</h5>
-<#--                        <p class="card-text">${product.price} ₽</p>-->
+                        <p class="card-text">${product.price} ₽</p>
                     </div>
                     <div class="card-footer">
                         ${product.city}

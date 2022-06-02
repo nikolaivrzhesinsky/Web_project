@@ -16,7 +16,7 @@ public class Product {
     private Long id;
     private String title;
     private String description;
-    //private Integer price;
+    private Integer price;
     private String city;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,
     mappedBy = "product")

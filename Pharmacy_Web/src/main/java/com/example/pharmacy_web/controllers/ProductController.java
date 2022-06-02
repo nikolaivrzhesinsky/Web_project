@@ -18,8 +18,9 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/products")
-    public String products(@RequestParam(name = "searchWord", required = false) String title, Principal principal, Model model) {
-        model.addAttribute("products", productService.listProducts(title));
+    public String products(@RequestParam(name = "searchCity", required = false) String city,
+                           @RequestParam(name="searchWord",required = false) String title, Principal principal, Model model) {
+        model.addAttribute("products", productService.listProducts(title, city));
         model.addAttribute("user", productService.getUserByPrincipal(principal));
         model.addAttribute("searchWord", title);
         return "products";
@@ -33,6 +34,14 @@ public class ProductController {
         model.addAttribute("images", product.getImages());
         model.addAttribute("authorProduct", product.getUser());
         return "product-info";
+    }
+
+    @GetMapping("/product/buy/{id}")
+    public String productBuying(@PathVariable Long id, Model model, Principal principal){
+        model.addAttribute("product", productService.getProductById(id));
+        model.addAttribute("user", productService.getUserByPrincipal(principal));
+
+        return "/buyPage";
     }
 
 //    @PostMapping("/product/create")

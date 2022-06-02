@@ -34,7 +34,7 @@ public class UserService {
         if(!(user.getEmail().isEmpty())){
             String message=String.format(
                     "Hello, %s! \n" +
-                            "Welcome to Sweater. Please, visit next link: http://localhost:8081/activate/%s",
+                            "Welcome to Pharmacy Web. Please, visit next link: http://localhost:8081/activate/%s",
                     user.getUsername(),
                     user.getActivationCode()
             );

@@ -100,7 +100,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="img/main-bg1.jpg" alt="">
+                        <img src="/static/img/main-bg1.jpg" alt="">
                         <div class="descr">
                             <p>Order your medicine, get reminders and have it delivered for free.</p>
                         </div>
@@ -108,7 +108,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="img/main-bg1.jpg" alt="">
+                        <img src="/static/img/main-bg1.jpg" alt="">
                         <div class="descr">
                             <p>Order your medicine, get reminders and have it delivered for free.</p>
                         </div>
@@ -116,7 +116,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="img/main-bg1.jpg" alt="">
+                        <img src="/static/img/main-bg1.jpg" alt="">
                         <div class="descr">
                             <p>Order your medicine, get reminders and have it delivered for free.</p>
                         </div>
@@ -124,7 +124,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="img/main-bg1.jpg" alt="">
+                        <img src="/static/img/main-bg1.jpg" alt="">
                         <div class="descr">
                             <p>Order your medicine, get reminders and have it delivered for free.</p>
                         </div>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="img/main-bg1.jpg" alt="">
+                        <img src="/static/img/main-bg1.jpg" alt="">
                         <div class="descr">
                             <p>Order your medicine, get reminders and have it delivered for free.</p>
                         </div>
@@ -140,7 +140,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="img/main-bg1.jpg" alt="">
+                        <img src="/static/img/main-bg1.jpg" alt="">
                         <div class="descr">
                             <p>Order your medicine, get reminders and have it delivered for free.</p>
                         </div>
@@ -148,7 +148,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="img/main-bg1.jpg" alt="">
+                        <img src="/static/img/main-bg1.jpg" alt="">
                         <div class="descr">
                             <p>Order your medicine, get reminders and have it delivered for free.</p>
                         </div>
@@ -156,7 +156,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="img/main-bg1.jpg" alt="">
+                        <img src="/static/img/main-bg1.jpg" alt="">
                         <div class="descr">
                             <p>Order your medicine, get reminders and have it delivered for free.</p>
                         </div>
@@ -164,7 +164,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="img/main-bg1.jpg" alt="">
+                        <img src="/static/img/main-bg1.jpg" alt="">
                         <div class="descr">
                             <p>Order your medicine, get reminders and have it delivered for free.</p>
                         </div>
@@ -180,18 +180,7 @@
     <!-- Google Analytics counter --><!-- /Google Analytics counter -->
     </body>
     </html>
-    © 2022 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Docs
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
+
 
 
 </@t.template>

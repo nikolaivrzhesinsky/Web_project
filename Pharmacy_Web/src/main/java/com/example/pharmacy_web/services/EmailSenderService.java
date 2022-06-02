@@ -1,6 +1,7 @@
 package com.example.pharmacy_web.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,9 @@ import org.springframework.stereotype.Service;
 public class EmailSenderService {
 
     private final JavaMailSender javaMailSender;
+
+    @Value("${spring.mail.username}")
+    private String username;
 
     @Autowired
     public EmailSenderService(JavaMailSender javaMailSender) {
@@ -19,7 +23,7 @@ public class EmailSenderService {
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
 
-        mailMessage.setFrom("15nk33l49@gmail.com");
+        mailMessage.setFrom(username);
         mailMessage.setTo(toEmail);
         mailMessage.setSubject(subject);
         mailMessage.setText(body);

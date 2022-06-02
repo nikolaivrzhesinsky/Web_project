@@ -21,15 +21,28 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final UserRepository userRepository;
 
-    public List<Product> listProducts(String title) {
-        if (title != null) return productRepository.findByTitle(title);
+    public List<Product> listProducts(String title, String city) {
+
+
+        if (title != null && city != null && !title.equals("")&&!city.equals("")) {
+            log.info("Выполнился 2");
+            return productRepository.findByTitleAndCity(title, city);
+        }
+        else  if(title!=null && !title.equals("")){
+            log.info("Выполнился 1");
+            return productRepository.findByTitle(title);
+        }
+        else if(city!=null && !city.equals("")){
+            log.info("ыполнился 3");
+            return productRepository.findByCity(city);
+        }
+
         return productRepository.findAll();
     }
 
     public void saveProduct(Principal principal, Product product, MultipartFile file1, MultipartFile file2, MultipartFile file3) throws IOException {
         User user= getUserByPrincipal(principal);
         product.setUser(user);
-        user.setBalance(user.getBalance()+300);
         Image image1;
         Image image2;
         Image image3;

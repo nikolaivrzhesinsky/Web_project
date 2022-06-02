@@ -39,13 +39,15 @@
     <hr>
     <p><h1 style="text-align: center">${product.title} </h1></p>
     <p style="text-align: center">${product.description}</p>
-    <p style="text-align: center">Номер телефона клиента: <b>${authorProduct.phoneNumber}</b></p>
+
+    <form action="/product/buy/${product.id}" method="get">
+        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+        <button type="submit" style="width: 100%" class="btn btn-dark">
+            ${product.price} ₽
+        </button>
+    </form>
 
     <hr>
-    <p style="text-align: center">
-        <a href="/user/${authorProduct.id}">
-            <img src="/static/images/avatar.png" alt="mdo" width="32" height="32" class="rounded-circle"> ${authorProduct.name}
-        </a>
-    </p>
+
 
 </@t.template>

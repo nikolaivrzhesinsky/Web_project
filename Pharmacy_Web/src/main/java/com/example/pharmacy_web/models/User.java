@@ -34,8 +34,14 @@ public class User implements UserDetails {
     private Set<Role> roles = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER,
-    mappedBy = "user")
+        mappedBy = "user")
     private List<Product> products = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY,
+            mappedBy = "user")
+
+    private List<Purchase> purchase = new ArrayList<>();
+
 
     public void addProductToUser(Product product) {
         product.setUser(this);
@@ -166,5 +172,13 @@ public class User implements UserDetails {
 
     public void setBalance(Integer balance) {
         this.balance = balance;
+    }
+
+    public List<Purchase> getPurchase() {
+        return purchase;
+    }
+
+    public void setPurchase(List<Purchase> purchase) {
+        this.purchase = purchase;
     }
 }
